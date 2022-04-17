@@ -1,29 +1,22 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { getStoriesByCategory } from '../lib'
-import Story from '../components/Story'
-import { testStores } from '../test'
+import { testStories } from '../test'
+import StoryList from '../components/StoryList'
 
-const Show: NextPage = ({stores}:any) => {
+const Show: NextPage = ({stories}:any) => {
   return (
-    <div>
-      {stores.map((story:any) => {
-        return (
-          <div key={story.id}>
-            <Story {...story} />
-          </div>
-        )
-      })}
-    </div>
+    <StoryList stories={stories} />
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const stores = await getStoriesByCategory('showstories');
-  // const stores = testStores;
+  const stories = await getStoriesByCategory('showstories');
+  // const stories = testStories;
   return {
     props: {
-      stores: stores == undefined ? [] : stores
-    }
+      stories: stories == undefined ? [] : stories
+    },
+    revalidate: 21600,
   }
 }
 

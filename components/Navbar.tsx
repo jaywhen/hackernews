@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import NavItem from "./NavItem";
 
 const navArr = [
@@ -30,13 +30,11 @@ const navArr = [
 ];
 
 const Navbar = () => {
-  const [currIndex, setCurrIndex] = useState(0);
-
   return (
     <nav className="sticky top-2 backdrop-blur-md z-10 mt-6 flex justify-evenly items-center font-bold w-96 h-12 shadow-lg text-[#FF6600] rounded-[30px]">
-      {navArr.map((item, index) => (
-        <div onClick={e => setCurrIndex(index)} key={index}>
-          <NavItem key={item.id} link={item.link} name={item.name} tabIndex={index} currIndex={currIndex} />
+      {navArr.map((item) => (
+        <div key={item.id}>
+          <NavItem key={item.id} link={item.link} name={item.name} />
         </div>
       ))}
     </nav>

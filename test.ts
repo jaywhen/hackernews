@@ -1,4 +1,4 @@
-export const testStores = [
+export const testStories = [
   {
     "id": 31040669,
     "by": "mooreds",
