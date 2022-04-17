@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { useEffect } from 'react'
 import Story from '../components/Story'
 import { getStoriesByCategory } from '../lib'
 import { testStores } from '../test'

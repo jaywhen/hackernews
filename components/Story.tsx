@@ -11,7 +11,7 @@ type Props = {
 
 const Story = (props: Props) => {
   return (
-    <div className="p-2 my-4 flex justify-between hover:shadow-md hover:shadow-[#ff66004c] hover:rounded-[15px] transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 duration-300">
+    <div className="p-2 my-4 flex justify-between sm:hover:shadow-md sm:hover:shadow-[#ff66004c] hover:rounded-[15px] transition ease-in-out delay-50 sm:hover:-translate-y-1 sm:hover:scale-110 duration-300">
       <div className="w-4/5">
         <div className="w-11/12 font-bold text-lg break-words">
           <a href={props.url} target='_blank' rel="noreferrer">{props.title}</a>

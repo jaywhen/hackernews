@@ -5,13 +5,13 @@ const handleUrl = (url: string):string => {
 
 const handleDate = (time: number):string => {
   const seconds = Math.floor((new Date().getTime()/1000) - time);
-  if(seconds < 60) return `${seconds} seconds ago`;
+  if(seconds < 60) return `${seconds} s`;
   const minutes = Math.floor(seconds / 60);
-  if(minutes < 60) return `${minutes} minutes ago`;
+  if(minutes < 60) return `${minutes} min`;
   const hours = Math.floor(minutes / 60);
-  if(hours < 24) return `${hours} hours ago`;
+  if(hours < 24) return `${hours} h`;
   const days = Math.floor(hours / 24);
-  return `${days} days ago`;
+  return `${days} days`;
 }
 
 const getStoryById = async (id: number) => {

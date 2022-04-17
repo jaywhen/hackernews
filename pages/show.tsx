@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 import { getStoriesByCategory } from '../lib'
 import Story from '../components/Story'
+import { testStores } from '../test'
 
 const Show: NextPage = ({stores}:any) => {
   return (
