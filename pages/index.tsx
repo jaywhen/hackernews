@@ -1,9 +1,10 @@
 import type { GetStaticProps, NextPage } from 'next'
 import StoryList from '../components/StoryList'
-import { getStoriesByCategory } from '../lib'
+import { getStoriesByCategory, REVALIDATE } from '../lib'
 import { testStories } from '../test'
+import { StoryData } from '../types'
 
-const Index: NextPage = ({stories}:any) => {
+const Index: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
   return (
     <StoryList stories={stories} />
   )
@@ -16,7 +17,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       stories: stories == undefined ? [] : stories
     },
-    revalidate: 21600,
+    revalidate: REVALIDATE,
   }
 }
 
