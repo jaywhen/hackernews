@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('hashChangeComplete', handleRouteChange);
     }
   }, [router.events]);
+
   return (
     <Layout>
       <Script
@@ -38,6 +39,10 @@ function MyApp({ Component, pageProps }: AppProps) {
             });
           `,
         }}
+      />
+      <Script
+        strategy='afterInteractive'
+        src='https://cdn.splitbee.io/sb.js'
       />
       <Component {...pageProps} />
     </Layout>
