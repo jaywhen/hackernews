@@ -11,7 +11,7 @@ const Jobs: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const stories = await getStoriesByCategory('jobstories');
+  const stories = await getStoriesByCategory('job');
   // const stories = testStories;
   return {
     props: {

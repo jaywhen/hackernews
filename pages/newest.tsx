@@ -11,7 +11,7 @@ const Newest: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const stories = await getStoriesByCategory('newstories');
+  const stories = await getStoriesByCategory('new');
   // const stories = testStories;
   return {
     props: {

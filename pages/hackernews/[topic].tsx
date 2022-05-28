@@ -12,7 +12,7 @@ const HackerNews: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const topics = [
-    'index', 'newest', 'ask', 'show', 'jobs'
+    'top', 'new', 'ask', 'show', 'job'
   ];
   return {
     paths: topics.map((t) => ({
@@ -23,12 +23,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 interface Props extends ParsedUrlQuery {
-  category: string
+  topic: string
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { category } = params as Props;
-  const stories = await getStoriesByCategory(category);
+  const { topic } = params as Props;
+  const stories = await getStoriesByCategory(topic);
   return {
     props: {
       stories

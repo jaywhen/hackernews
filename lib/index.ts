@@ -32,7 +32,7 @@ const getStoryById = async (id: number) => {
 }
 
 const getStoriesIdByCategory = async (category: string) => {
-  const response = await fetch(`https://hacker-news.firebaseio.com/v0/${category}.json?print=pretty`);
+  const response = await fetch(`https://hacker-news.firebaseio.com/v0/${category}stories.json?print=pretty`);
   const data = await response.json();
   return data.slice(0, 50);
 }

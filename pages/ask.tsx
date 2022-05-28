@@ -11,7 +11,7 @@ const Ask: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const stories = await getStoriesByCategory('askstories');
+  const stories = await getStoriesByCategory('ask');
   // const stories = testStories;
   return {
     props: {
