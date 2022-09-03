@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react';
 import * as gtag from '../lib/gtag';
 import Script from 'next/script';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -44,6 +45,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         strategy='afterInteractive'
         src='https://cdn.splitbee.io/sb.js'
       />
+      <Head>
+        <title>HC Reader</title>
+        <link rel="manifest" href="/manifest.json" />
+      </Head>
       <Component {...pageProps} />
     </Layout>
   )

@@ -38,6 +38,7 @@ const getStoriesIdByCategory = async (category: string) => {
 }
 
 export const getStoriesByCategory = async (category: string) => {
+  category = category === '/' ? 'top' : category;
   const ids = await getStoriesIdByCategory(category);
   const promises = ids.map((id: number) => getStoryById(id));
   const stories = await Promise.all(promises);

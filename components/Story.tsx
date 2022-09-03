@@ -7,7 +7,12 @@ const Story = (story: StoryData) => {
         <div className="w-11/12 font-bold text-lg break-words">
           <a href={story.url} target='_blank' rel="noreferrer">{story.title}</a>
         </div>
-        <div className="text-sm"><span className="text-[#FF6600] font-bold">{story.score}</span>{` points by ${story.by} • (${story.hostname})`}</div>
+        <div className="text-sm">
+          <span className="text-[#FF6600] font-bold">{story.score}</span>
+          {` points by ${story.by} • (`}
+          <a className="hover:underline" href={`https://${story.hostname}`} target='_blank' rel="noreferrer">{story.hostname}</a>
+          {`)`}
+        </div>
       </div>
       <div className="text-gray-600 font-bold">{story.time}</div>
     </div>
