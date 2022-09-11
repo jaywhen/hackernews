@@ -1,6 +1,6 @@
 # Hacker News
 
-Yet another Hacker News clone
+Yet another Hacker News clone, support **PWA**
 
 ### Techstack
 
