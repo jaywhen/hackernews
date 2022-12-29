@@ -1,5 +1,5 @@
-import { StoryData } from "../types";
-import Story from "./Story";
+import { StoryData } from '../types';
+import Story from './Story';
 
 const StoryList = ({ stories }: any) => {
   return (
@@ -9,9 +9,10 @@ const StoryList = ({ stories }: any) => {
           <div key={story.id}>
             <Story {...story} />
           </div>
-        )
+        );
       })}
-    </div>)
-}
+    </div>
+  );
+};
 
 export default StoryList;
