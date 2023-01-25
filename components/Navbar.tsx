@@ -31,7 +31,7 @@ const navArr: Nav[] = [
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-2 backdrop-blur-md z-10 mt-6 flex justify-evenly items-center font-bold w-96 h-12 shadow-lg text-[#FF6600] rounded-[30px]">
+    <nav className="sticky lg:top-2 top-[calc(100vh-70px)] backdrop-blur-md z-10 lg:mt-6 mt-[-30px] flex justify-evenly items-center font-bold w-96 h-12 shadow-lg text-[#FF6600] rounded-[30px]">
       {navArr.map((item) => (
         <div key={item.id}>
           <NavItem {...item} />
