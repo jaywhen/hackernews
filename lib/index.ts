@@ -56,5 +56,5 @@ export const getStoriesByCategory = async (category: string) => {
   return stories;
 };
 
-// 6 hours
-export const REVALIDATE: number = 60 * 60 * 6;
+// 30 minutes
+export const REVALIDATE: number = 60 * 30;
