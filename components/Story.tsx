@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { StoryData } from '../types';
 
 const Story = (story: StoryData) => {
@@ -11,7 +12,11 @@ const Story = (story: StoryData) => {
         </div>
         <div className="text-sm">
           <span className="text-[#FF6600] font-bold">{story.score}</span>
-          {` points by ${story.by} • (`}
+          &nbsp;points by&nbsp;
+          <span className="hover:underline">
+            <Link href={`/user/${story.by}`}>{story.by}</Link>
+          </span>
+          {` • (`}
           <a
             className="hover:underline"
             href={`https://${story.hostname}`}

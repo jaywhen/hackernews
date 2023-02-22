@@ -1,9 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next';
 import StoryList from '../components/StoryList';
 import { getStoriesByCategory, REVALIDATE } from '../lib';
-import { StoryData } from '../types';
+import { NavItemName, StoryData } from '../types';
+import useScrollTo from '../hooks/useScrollTo';
 
 const Index: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
+  useScrollTo(NavItemName.Ask.toLowerCase());
+
   return <StoryList stories={stories} />;
 };
 

@@ -1,9 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { getStoriesByCategory, REVALIDATE } from '../lib';
 import StoryList from '../components/StoryList';
-import { StoryData } from '../types';
+import { NavItemName, StoryData } from '../types';
+import useScrollTo from '../hooks/useScrollTo';
 
 const Jobs: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
+  useScrollTo(NavItemName.Ask.toLowerCase());
+
   return <StoryList stories={stories} />;
 };
 

@@ -1,6 +1,9 @@
+import { StoryData, UserInfo } from '../types';
+
+const API_HOST = 'https://hacker-news.firebaseio.com/v0';
+
 const handleUrl = (url: string): string => {
-  const urlObj = new URL(url);
-  return urlObj.hostname;
+  return new URL(url).hostname;
 };
 
 const handleDate = (time: number): string => {
@@ -17,10 +20,8 @@ const handleDate = (time: number): string => {
   return `${days}d`;
 };
 
-const getStoryById = async (id: number) => {
-  const response = await fetch(
-    `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
-  );
+const getStoryById = async (id: number): Promise<StoryData> => {
+  const response = await fetch(`${API_HOST}/item/${id}.json`);
   const data = await response.json();
   const time = handleDate(data.time);
   const url =
@@ -38,23 +39,29 @@ const getStoryById = async (id: number) => {
   };
 };
 
-const getStoriesIdByCategory = async (category: string) => {
-  const response = await fetch(
-    `https://hacker-news.firebaseio.com/v0/${category}stories.json?print=pretty`
-  );
+const getStoriesIdByCategory = async (category: string): Promise<number[]> => {
+  const response = await fetch(`${API_HOST}/${category}stories.json`);
   const data = await response.json();
 
   return data.slice(0, 50);
 };
 
-export const getStoriesByCategory = async (category: string) => {
+export const getStoriesByCategory = async (
+  category: string
+): Promise<StoryData[]> => {
   category = category === '/' ? 'top' : category;
   const ids = await getStoriesIdByCategory(category);
-  const promises = ids.map((id: number) => getStoryById(id));
-  const stories = await Promise.all(promises);
+  const stories = await Promise.all(ids.map((id: number) => getStoryById(id)));
 
   return stories;
 };
 
-// 30 minutes
-export const REVALIDATE: number = 60 * 30;
+export const getUserInfoById = async (userId: string): Promise<UserInfo> => {
+  const response = await fetch(`${API_HOST}/user/${userId}.json`);
+  const data = await response.json();
+
+  return data;
+};
+
+// 5 minutes
+export const REVALIDATE: number = 60 * 5;

@@ -1,31 +1,31 @@
 import NavItem from './NavItem';
-import { Nav } from '../types';
+import { Nav, NavItemName } from '../types';
 
 const navArr: Nav[] = [
   {
     id: 0,
     link: '/',
-    name: 'Index',
+    name: NavItemName.Index,
   },
   {
     id: 1,
-    link: '/newest',
-    name: 'New',
+    link: '/new',
+    name: NavItemName.New,
   },
   {
     id: 2,
     link: '/ask',
-    name: 'Ask',
+    name: NavItemName.Ask,
   },
   {
     id: 3,
     link: '/show',
-    name: 'Show',
+    name: NavItemName.Show,
   },
   {
     id: 4,
     link: '/jobs',
-    name: 'Jobs',
+    name: NavItemName.Jobs,
   },
 ];
 

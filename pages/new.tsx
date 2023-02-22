@@ -1,9 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { getStoriesByCategory, REVALIDATE } from '../lib';
 import StoryList from '../components/StoryList';
-import { StoryData } from '../types';
+import { NavItemName, StoryData } from '../types';
+import useScrollTo from '../hooks/useScrollTo';
 
-const Newest: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
+const New: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
+  useScrollTo(NavItemName.New.toLowerCase());
+
   return <StoryList stories={stories} />;
 };
 
@@ -18,4 +21,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Newest;
+export default New;

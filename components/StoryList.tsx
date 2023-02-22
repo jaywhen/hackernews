@@ -1,7 +1,7 @@
 import { StoryData } from '../types';
 import Story from './Story';
 
-const StoryList = ({ stories }: any) => {
+const StoryList = ({ stories }: { stories: StoryData[] }) => {
   return (
     <div className="px-2">
       {stories.map((story: StoryData) => {
