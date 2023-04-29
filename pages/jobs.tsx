@@ -5,7 +5,7 @@ import { NavItemName, StoryData } from '../types';
 import useScrollTo from '../hooks/useScrollTo';
 
 const Jobs: NextPage<{ stories: StoryData[] }> = ({ stories }) => {
-  useScrollTo(NavItemName.Ask.toLowerCase());
+  useScrollTo(NavItemName.Jobs.toLowerCase());
 
   return <StoryList stories={stories} />;
 };
